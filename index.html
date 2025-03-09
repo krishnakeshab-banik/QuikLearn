@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuikLearn - Generate Flashcards from Any Content</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>QuikLearn</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Transform Any Content Into Flashcards</h1>
+                <p>Upload files or paste links to automatically generate interactive Q&A flashcards</p>
+                <button id="get-started-btn" class="primary-btn">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://placeholder.svg?height=300&width=400" alt="QuikLearn illustration">
+            </div>
+        </section>
+
+        <section id="input-section" class="input-section">
+            <div class="container">
+                <h2>Create Your Flashcards</h2>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="file-tab">Upload Files</button>
+                    <button class="tab-btn" data-tab="link-tab">Paste Links</button>
+                </div>
+                
+                <div class="tab-content active" id="file-tab">
+                    <div class="upload-area" id="upload-area">
+                        <img src="https://placeholder.svg?height=80&width=80" alt="Upload icon">
+                        <p>Drag & drop files or <span class="browse-text">browse</span></p>
+                        <p class="small-text">Supports PDF, PPT, TXT files</p>
+                        <input type="file" id="file-input" accept=".pdf,.ppt,.pptx,.txt" multiple hidden>
+                    </div>
+                    <div class="file-list" id="file-list"></div>
+                </div>
+                
+                <div class="tab-content" id="link-tab">
+                    <div class="link-input-container">
+                        <input type="text" id="link-input" placeholder="Paste YouTube or Wikipedia URL">
+                        <button id="add-link-btn" class="secondary-btn">Add Link</button>
+                    </div>
+                    <div class="link-list" id="link-list"></div>
+                </div>
+                
+                <button id="generate-btn" class="primary-btn" disabled>Generate Flashcards</button>
+            </div>
+        </section>
+
+        <section id="processing-section" class="processing-section hidden">
+            <div class="container">
+                <h2>Processing Your Content</h2>
+                <div class="loader"></div>
+                <p id="processing-status">Analyzing content and generating flashcards...</p>
+            </div>
+        </section>
+
+        <section id="flashcard-section" class="flashcard-section hidden">
+            <div class="container">
+                <div class="flashcard-header">
+                    <h2>Your Flashcards</h2>
+                    <div class="flashcard-controls">
+                        <button id="prev-card-btn" class="control-btn" disabled>Previous</button>
+                        <span id="card-counter">Card 1 of 1</span>
+                        <button id="next-card-btn" class="control-btn">Next</button>
+                    </div>
+                </div>
+                
+                <div class="flashcard-container">
+                    <div class="flashcard" id="current-flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Question</h3>
+                                <p id="question-text">Your question will appear here</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Answer</h3>
+                                <p id="answer-text">Your answer will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard-actions">
+                    <button id="flip-card-btn" class="secondary-btn">Flip Card</button>
+                    <button id="new-set-btn" class="primary-btn">Create New Set</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Upload or Link</h3>
+                        <p>Add your study materials - PDFs, presentations, text files, or online resources</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Automatic Processing</h3>
+                        <p>Our system analyzes your content and identifies key concepts</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Learn with Flashcards</h3>
+                        <p>Review the generated Q&A flashcards to reinforce your knowledge</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <img src="https://placeholder.svg?height=60&width=60" alt="Multiple formats icon">
+                        <h3>Multiple Formats</h3>
+                        <p>Process PDFs, PowerPoints, text files, YouTube videos, and Wikipedia articles</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://placeholder.svg?height=60&width=60" alt="AI generation icon">
+                        <h3>Smart Generation</h3>
+                        <p>Automatically creates relevant question-answer pairs from your content</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://placeholder.svg?height=60&width=60" alt="Interactive learning icon">
+                        <h3>Interactive Learning</h3>
+                        <p>Flip through flashcards to test your knowledge and improve retention</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About the Creator</h2>
+            <div class="about-content">
+                <div class="creator-image">
+                    <img src="./photo/1740250920515.jpeg" alt="Krishna Keshab Banik">
+                </div>
+                <div class="creator-info">
+                    <h3>Krishna Keshab Banik</h3>
+                    <p class="creator-bio">
+                        I'm the creator of QuikLearn, an AI-driven learning platform designed to transform any document, article, or textbook into interactive flashcards in seconds. With a passion for education technology, I developed QuikLearn to help students, professionals, and lifelong learners simplify complex information into easy-to-digest flashcards.
+                    </p>
+                    <p>
+                        QuikLearn is designed to be accessible, fast, and efficient, helping learners grasp key concepts quickly without manual note-taking. Whether it's for academic subjects, research papers, or industry reports, QuikLearn accelerates your learning journey with minimal effort.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/krishna-keshab-banik-067819324/" target="_blank" class="social-link">
+                            <img src="https://www.google.com/imgres?q=linkedin&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D100064379813770&imgrefurl=https%3A%2F%2Fwww.facebook.com%2FLinkedIn%2F&docid=I9QUtTnUHKwTGM&tbnid=hRVO_EXSa77khM&vet=12ahUKEwjLwanv1f2LAxX5wzgGHeMxEP8QM3oECBYQAA..i&w=2048&h=2048&hcb=2&ved=2ahUKEwjLwanv1f2LAxX5wzgGHeMxEP8QM3oECBYQAA" alt="LinkedIn">
+                            LinkedIn
+                        </a>
+                        <a href="https://www.instagram.com/krish.banik.1234?igsh=YXNhYThlNnUwYjNr" target="_blank" class="social-link">
+                            <img src="https://www.google.com/imgres?q=instagram&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D100064469571787&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Finstagram%2F&docid=wEGerGTz4SfaOM&tbnid=m8JMMxx0jKJGJM&vet=12ahUKEwjIh8rg1f2LAxXW4TgGHUhcAi4QM3oECFMQAA..i&w=1000&h=1000&hcb=2&ved=2ahUKEwjIh8rg1f2LAxXW4TgGHUhcAi4QM3oECFMQAA" alt="Instagram">
+                            Instagram
+                        </a>
+                        <a href="https://github.com/krishnakeshab-banik" target="_blank" class="social-link">
+                            <img src="https://www.google.com/imgres?q=github&imgurl=https%3A%2F%2Fcdn.prod.website-files.com%2F5f10ed4b2ae6bc09c03f5d7a%2F64959d5f65a257fb51a4259c_github.png&imgrefurl=https%3A%2F%2Fwww.opsera.io%2Fsolutions%2Fopsera-github&docid=Y5JX_CoyiD2XYM&tbnid=jMCbwGjilq7oTM&vet=12ahUKEwiOtpbZ1f2LAxU52DgGHdKYAWUQM3oECH8QAA..i&w=1200&h=1200&hcb=2&ved=2ahUKEwiOtpbZ1f2LAxU52DgGHdKYAWUQM3oECH8QAA" alt="GitHub">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>QuikLearn</h2>
+                    <p>Transform content into knowledge</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 QuikLearn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
